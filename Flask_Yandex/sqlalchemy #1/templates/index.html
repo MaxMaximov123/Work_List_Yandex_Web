@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <title>{{ title }}</title>
+        <style>
+            table {
+                font-size: 20px;
+                margin: 20px;
+                width: 100%;
+            }
+            tr {
+                padding: 50px;
+                height: 60px;
+            }
+
+            th {
+                background-color:azure;
+            }
+            
+            td {
+                background-color: aquamarine;
+            }
+
+        </style>
+    </head>
+    <body>
+        {% extends "base.html" %}
+        {% block content %}
+            <h2 align="center">{{ head3 }}</h2>
+            {% for work in works %}
+                <h3>Action # {{ work.id }}</h5>
+                <table>
+                    <tr>
+                        <th>Title of activity</th>
+                        <th>Team leader</th>
+                        <th>Duration</th>
+                        <th>List of collaborators</th>
+                        <th>Is finished</th>
+                    </tr>
+                    <tr>
+                        <td>{{ work.job }}</td>
+                        <td>{{ work.team_leader_name }} {{ work.team_leader_surname }}</td>
+                        <td>{{ work.duration }}</td>
+                        <td>{{ work.collaborators }}</td>
+                        <td style="background-color: fuchsia;">{{ work.is_finished }}</td>
+                    </tr>
+                </table>
+            {% endfor %}
+        {% endblock %}
+    </body>
+</html>
