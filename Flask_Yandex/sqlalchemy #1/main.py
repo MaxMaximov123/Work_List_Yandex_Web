@@ -52,7 +52,7 @@ def index1():
     for i, wr in enumerate(work_list):
         try:
             id1 = wr.team_leader
-            work_list[i].duration = str(wr.end_date - wr.start_date).split(':')[0]
+            work_list[i].duration = str(wr.work_size)
             work_list[i].team_leader_name = db_sess.query(User).filter(User.id == 1).first().name
             work_list[i].team_leader_surname = db_sess.query(User).filter(User.id == 1).first().surname
         except Exception as e:
